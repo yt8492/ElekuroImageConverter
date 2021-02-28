@@ -27,8 +27,8 @@ fun main(args: Array<String>) {
     val width = image.width
     val height = image.height
     val outputStream = FileOutputStream(outputFileName ?: "out.bit")
-    for (x in 0 until width) {
-        for (y in 0 until height) {
+    for (y in 0 until height) {
+        for (x in 0 until width) {
             val color = Color(image.getRGB(x, y))
             val r = color.red
             val g = color.green
@@ -50,8 +50,8 @@ fun debug(baseFile: String, debugFile: String) {
     val baseImage = ImageIO.read(File(baseFile))
     val image = BufferedImage(baseImage.width, baseImage.height, BufferedImage.TYPE_INT_RGB)
     val debugStream = FileInputStream(inputFile)
-    for (x in 0 until baseImage.width) {
-        for (y in 0 until baseImage.height) {
+    for (y in 0 until baseImage.height) {
+        for (x in 0 until baseImage.width) {
             val r = debugStream.read()
             val g = debugStream.read()
             val b = debugStream.read()
